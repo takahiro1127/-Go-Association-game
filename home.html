@@ -4,9 +4,12 @@
 <title>AssociationGame</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
+$('#set_answear').on('click',function(){
+    console.log("入ってる");
+});
 window.onload = function () {
     var conn;
-    var answear_set_by_questioner = "こんにちは"
+    var answear_set_by_questioner = document.getElementById("setting_answear")
     var msg = document.getElementById("msg");
     var log = document.getElementById("log");
 
@@ -66,8 +69,8 @@ body {
     overflow: hidden;
     padding: 0;
     margin: 0;
-    width: 100%;
-    height: 100%;
+    width: 75%;
+    height: 75%;
     background: gray;
 }
 
@@ -79,12 +82,12 @@ body {
     top: 0.5em;
     left: 0.5em;
     right: 0.5em;
-    bottom: 3em;
+    bottom: 5em;
     overflow: auto;
 }
 
-#form {
-    padding: 0 0.5em 0 0.5em;
+#forms {
+    padding: 0 2em 0 2em;
     margin: 0;
     position: absolute;
     bottom: 1em;
@@ -97,9 +100,15 @@ body {
 </head>
 <body>
 <div id="log"></div>
-<form id="form">
-    <input type="submit" value="Send" />
-    <input type="text" id="msg" size="64"/>
-</form>
+<div id="forms">
+    <form id="form">
+        <input type="submit" value="Send" />
+        <input type="text" id="msg" size="64"/>
+    </form>
+    <form id="questioner">
+        <input type="submit" value="Send" id="set_answear" />
+        答えを設定する：<input type="text" id="setting_answear" size="64"/>
+    </form>
+</div>
 </body>
 </html>
