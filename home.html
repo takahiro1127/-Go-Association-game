@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Chat Example</title>
+<title>AssociationGame</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 window.onload = function () {
     var conn;
+    var answear_set_by_questioner = "こんにちは"
     var msg = document.getElementById("msg");
     var log = document.getElementById("log");
 
@@ -38,7 +40,12 @@ window.onload = function () {
         conn.onmessage = function (evt) {
             var messages = evt.data.split('\n');
             for (var i = 0; i < messages.length; i++) {
-                var item = document.createElement("div");
+                if (messages[i] == answear_set_by_questioner) {
+                    var item = document.createElement("div");
+                    item.style.color = "#FF0000";
+                } else {
+                    var item = document.createElement("div");
+                }
                 item.innerText = messages[i];
                 appendLog(item);
             }
